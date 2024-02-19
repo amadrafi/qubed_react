@@ -23,7 +23,7 @@ export default function Home() {
         <div className="basis-1/3 bg-gray-600 flex items-center">
           <UploadPicture />
         </div>
-        <div className="basis-1/3 bg-gray-800 flex items-center">
+        <div className="basis-1/3 bg-gray-700 flex items-center">
           <UnderstandingGraph />
         </div>
       </div>
