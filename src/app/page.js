@@ -3,12 +3,11 @@
 import LessonCarousels from './components/Carousel';
 import RecentQuestions from "./components/RecentQuestions";
 import ClassSummaries from "./components/ClassSummaries";
-import UploadPicture from "./components/UploadPicture";
 import UnderstandingGraph from "./components/UnderstandingGraph";
 
 export default function Home() {
   return (
-    <div className=" bg-zinc-800 text-white h-full max-w-full flex flex-col pt-3">
+    <div className=" bg-zinc-800 text-white h-full max-w-full flex flex-col pt-3 p-2">
       <div className="flex flex-row h-3/6">
         <div className="w-3/5 flex">
           <LessonCarousels />
@@ -23,7 +22,6 @@ export default function Home() {
         </div>
         <div className="w-1/3 flex items-center">
           <h1 className='mx-auto text-center'>
-
             FREE SPACE!!!
           </h1>
           {/* <UploadPicture /> */}
