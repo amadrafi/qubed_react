@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <ThemeModeScript />
       </head>
       <body className={inter.className}>
-        <div className='h-screen flex flex-row bg-inherit'>
+        <div className='h-screen flex flex-row bg-inherit overflow-x-hidden'>
           <Navbar />
           <div className="flex-auto">{children}</div>
         </div>
