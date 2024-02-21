@@ -26,7 +26,7 @@ function LessonTable(props){
             <Table.Body className="divide-y">
             {completedLessonData.map((lesson) => (
 
-                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Row key={lesson._id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                 {lesson.lessonName}
                 </Table.Cell>
