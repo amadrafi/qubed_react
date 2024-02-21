@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className='h-screen flex flex-row bg-inherit overflow-x-hidden'>
           <Navbar />
-          <div className="flex-auto p-2 bg-zinc-800">{children}</div>
+          <div className="flex-auto bg-zinc-800">{children}</div>
         </div>
       </body>
     </html>
