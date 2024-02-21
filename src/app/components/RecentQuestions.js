@@ -5,9 +5,9 @@ import QuestionRow from './QuestionRow';
 
 function RecentQuestions(){
   return (
-    <div className=" w-full mx-3 max-h-full max-h-96 lg:max-h-full overflow-y-scroll py-2">
+    <div className=" mx-3 max-h-full items-center max-h-96 lg:max-h-full overflow-y-scroll py-2">
       <Table hoverable className='dark'>
-        <Table.Head className='sticky'>
+        <Table.Head>
           <Table.HeadCell>Questions</Table.HeadCell>
           <Table.HeadCell>Date</Table.HeadCell>
           <Table.HeadCell>Subject</Table.HeadCell>
