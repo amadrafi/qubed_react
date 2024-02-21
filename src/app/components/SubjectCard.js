@@ -1,6 +1,6 @@
 import { Card } from 'flowbite-react';
 
-function ClassCard(props) {
+function SubjectCard(props) {
   return (
     <Card href="/" className="max-w-full min-h-full dark:bg-zinc-950 dark:hover:bg-zinc-900">
       <h5 className=" text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
@@ -14,4 +14,4 @@ function ClassCard(props) {
   );
 }
 
-export default ClassCard;
+export default SubjectCard;
