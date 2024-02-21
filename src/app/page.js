@@ -13,7 +13,7 @@ export default function Home() {
         <div className="w-3/5 flex">
           <LessonCarousels />
         </div>
-        <div className="w-2/5 flex items-start">
+        <div className="w-2/5 flex items-start pb-2">
           <RecentQuestions />
         </div>
       </div>
@@ -22,7 +22,11 @@ export default function Home() {
           <ClassSummaries />
         </div>
         <div className="w-1/3 flex items-center">
-          <UploadPicture />
+          <h1 className='mx-auto text-center'>
+
+            FREE SPACE!!!
+          </h1>
+          {/* <UploadPicture /> */}
         </div>
         <div className="w-1/3 flex items-center">
           <UnderstandingGraph />

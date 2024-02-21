@@ -1,5 +1,4 @@
 import { Carousel } from "flowbite-react";
-import ClassCard from "./ClassCard";
 
 
 function LessonCarousels() {
@@ -18,9 +17,9 @@ function LessonCarousels() {
           <div className="bg-green-300 rounded-lg mx-1">Mathematics</div>
         </div>
         <div className='grid grid-cols-3 h-full w-full text-black overflow-x-hidden'>
-          <div className="bg-pink-400 rounded-lg ">History 2</div>
-          <div className="bg-blue-200 rounded-lg ">Biology</div>
-          <div className="bg-green-300 rounded-lg ">Mathematics</div>
+          <div className="bg-pink-400 rounded-lg mx-1">History 2</div>
+          <div className="bg-blue-200 rounded-lg mx-1">Biology</div>
+          <div className="bg-green-300 rounded-lg mx-1">Mathematics</div>
         </div>
       </Carousel>
     </div>
