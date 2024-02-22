@@ -8,9 +8,9 @@ function addLessons() {
     <div className='bg-slate-100 min-h-full'>
 
   
-    <div className="bg-white-500 w-full h-[6vh] flex items-center">
+    <div className="bg-white-500 w-full h-[6vh] flex items-center sticky top-0">
     {/* <div className='bg-slate-100'> */}
-    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
   </svg>
     </div>
