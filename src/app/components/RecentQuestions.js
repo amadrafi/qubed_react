@@ -5,12 +5,12 @@ import QuestionRow from './QuestionRow';
 
 function RecentQuestions(){
   return (
-    <div className=" max-h-full items-center max-h-96 lg:max-h-full overflow-y-scroll rounded-lg">
-      <Table hoverable className=''>
-        <Table.Head className='sticky top-0'>
-          <Table.HeadCell className='bg-neutral-900 text-gray-400'>Recent Questions</Table.HeadCell>
-          <Table.HeadCell className='bg-neutral-900 text-gray-400'>Date</Table.HeadCell>
-          <Table.HeadCell className='bg-neutral-900 text-gray-400'>Subject</Table.HeadCell>
+    <div className=" max-h-full max-h-96 lg:max-h-full overflow-y-scroll rounded-lg">
+      <Table hoverable className=' font-poppins'>
+        <Table.Head className='sticky top-0 text-black text-sm bg-white'>
+          <Table.HeadCell className=''>Recent Questions</Table.HeadCell>
+          <Table.HeadCell className=''>Date</Table.HeadCell>
+          <Table.HeadCell className=''>Subject</Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
           <QuestionRow question="Who invented the light bulb?" date="05/12" subject="Physics" color="success"/>
