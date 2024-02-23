@@ -1,12 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Badge } from 'flowbite-react';
+import { Badge, Accordion } from 'flowbite-react';
 import axios from 'axios';
 import playButton from './triangle-play.svg'
 import Image from 'next/image';
 import { width } from '@mui/system';
 import styled, { keyframes } from 'styled-components'
+import LessonStartCard from '@/app/components/LessonStartCard';
+import LessonTimeline from '@/app/components/LessonTimeline';
 
 
 function ClassDetails({ params }) {
@@ -21,53 +23,13 @@ function ClassDetails({ params }) {
 
   // 0 - not started, 1 - in progress, 2 - paused, 3 - finished
 
-  const getBackgroundColor = (lessonState) => {
-    switch (lessonState) {
-      case 1:
-        return '#EBFEEB'; // Green color for lessonState 1
-      case 2:
-        return '#FFFDCC'; // Yellow color for lessonState 2
-      case 3:
-        return '#FFDBCC'; // Red colour
-      default:
-        return '#D1D5DB'; // Default color for other states
-    }
-  };
-
-  const getText = (lessonState) => {
-    switch (lessonState) {
-      case 1:
-        return 'Lesson in Progress'; // Green color for lessonState 1
-      case 2:
-        return 'Lesson paused'; // Yellow color for lessonState 2
-      case 3:
-        return 'Lesson ended'; // Red colour
-      default:
-        return 'Start Lesson'; // Default color for other states
-    }
-  };
-
-  const getBorderColor = (lessonState) => {
-    switch (lessonState) {
-      case 1:
-        return '#2A8433'; // Green color for lessonState 1
-      case 2:
-        return '#FFCE70'; // Yellow color for lessonState 2
-      case 3:
-        return '#FF7070'; // Red colour
-      default:
-        return '#363636'; // Default color for other states
-    }
-  };
-
+  
   const formatDate = (dateString) => {
     const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  const changeLessonState = (state) => {
-    setLessonState(state);
-  }
+ 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -147,68 +109,65 @@ function ClassDetails({ params }) {
   </div>
 </div>
 
-{lesson.lessonStatus != 'completed' && (
-            <div class="w-full h-[12vh] mt-8 rounded-3xl border-2 flex flex-col items-center pt-2" 
-            style={{backgroundColor: getBackgroundColor(lessonState), borderColor: getBorderColor(lessonState)}}>
-            
+{lesson.lessonStatus != 'completed' ? (
+  <>
+   <LessonStartCard></LessonStartCard>
 
-            {lessonState === 0 && (
-              <div class="border-2 h-10 w-10 rounded-full flex justify-center items-center"
-              style={{borderColor: getBorderColor(lessonState)}}>
-                <svg onClick={() => changeLessonState(1)} style={{ fill: getBorderColor(lessonState) }}  class="svg-icon h-7 pl-1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M891.161 512l-749.992 450v-900l749.992 450z"  /></svg>
+   <p class="mt-8 mb-8 font-poppins text-2xl font-semibold text-black">Key Concepts</p>
+   
 
-              </div>      
-
-            )}
-            {lessonState === 1 && (
-              <div class="border-2 h-10 w-10 rounded-full flex justify-center items-center"
-              style={{borderColor: getBorderColor(lessonState)}}>
-                <svg onClick={() => changeLessonState(2)} class="animate-pulse" width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 0V15" stroke="#2A8433" stroke-width="3"/>
-                <path d="M7 0V15" stroke="#2A8433" stroke-width="3"/>
-                </svg>
-              </div>      
-
-            )}
-
-{lessonState === 2 && (
-  <div style={{ display: 'flex' }}>
-    <div
-      className="border-2 h-10 w-10 rounded-full flex justify-center items-center"
-      style={{ borderColor: getBorderColor(lessonState), marginRight: '10px' }}
-    >
-      <svg
-        onClick={() => changeLessonState(1)}
-        style={{ fill: getBorderColor(lessonState) }}
-        className="svg-icon h-7 pl-1"
-        viewBox="0 0 1024 1024"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M891.161 512l-749.992 450v-900l749.992 450z" />
-      </svg>
-    </div>
-
-    <div
-      className="border-2 h-10 w-10 rounded-full flex justify-center items-center"
-      style={{ borderColor: getBorderColor(lessonState) }}
-    >
-      <svg  onClick={() => changeLessonState(3)} width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="17" height="17" fill="#FFCE70" />
-      </svg>
-    </div>
+    <div class="flex">
+  <div class="mt-2 inline-block max-w-min mr-2 whitespace-nowrap">
+    <Badge className="bg-slate-200 text-black" size="lg">
+      Finding Areas
+    </Badge>
   </div>
-)}
+  <div class="mt-2 inline-block max-w-min whitespace-nowrap">
+    <Badge className="bg-slate-200 text-black" size="lg">
+    Number of unit squares
+    </Badge>
+  </div>
+</div>
+
+   <div class="mt-12">
+   <p class="font-poppins text-2xl font-semibold text-black mt-4 mb-6">Lesson Schedule</p>
+
+
+   {/* <Accordion>
+      <Accordion.Panel>
+        <Accordion.Title className="font-poppins text-xl font-semibold text-black">Lesson Schedule</Accordion.Title>
+        <Accordion.Content> */}
+        <LessonTimeline></LessonTimeline>
+        {/* </Accordion.Content>
+      </Accordion.Panel>
+  
+        
+    </Accordion>
+     */}
+   
+   </div>
+   
+  </>
+          
+
+           
+) : (
+  <>
+  <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Summary</p>
+        <div class="w-2/3">
+
+        </div>
+  
+  </>
+)}  
+
 
 
 
 
            
             
-            <span class="text-black">{getText(lessonState)}</span>
-          </div>
-          
-          )}
+  
 
 
     
