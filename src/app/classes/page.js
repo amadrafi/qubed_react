@@ -13,6 +13,7 @@ export default function Classes() {
   const [completedLessons, setCompletedLessons] = useState([]);
   const [futureLessons, setFutureLessons] = useState([]);
   const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {

@@ -86,11 +86,11 @@ function ClassDetails({ params }) {
       </svg>
       </a>
         </div>
-        <di className="flex justify-center items-center">
+        <div className="flex justify-center items-center">
         <div className="bg-zinc-300 w-full h-[30vh] rounded-t-3xl flex flex-col">
         <img class="object-cover max-h-full rounded-t-3xl" src={lesson.lessonImage} />
         </div>
-        </di>
+        </div>
     
         <div class="bg-white-500 p-1 h-full">
       <div class="bg-white-500 flex flex-col justify-start  mt-16 mx-auto w-full max-w-[45vw] h-full">
