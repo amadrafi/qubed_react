@@ -42,7 +42,7 @@ function LessonCarousels() {
     return groups.map((group, index) => (
       <div key={index} className="grid grid-cols-2 h-full w-full text-black overflow-x-hidden">
         {group.map((lesson) => (
-          <LessonCard lessonName={lesson.lessonName} image={lesson.lessonImage} id={lesson._id}/>
+          <LessonCard key={lesson._id} lessonName={lesson.lessonName} image={lesson.lessonImage} id={lesson._id}/>
         ))}
       </div>
     ));
