@@ -1,6 +1,6 @@
 'use client';
 
-import Link from "next/link";
+
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -11,6 +11,7 @@ import LessonTable from "../components/LessonTable";
 export default function Classes() {
   const [lessonData, setLessonData] = useState(null);
   const [completedLessons, setCompletedLessons] = useState([]);
+  const [futureLessons, setFutureLessons] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +31,10 @@ export default function Classes() {
           (lesson) => lesson.lessonStatus === 'completed'
         );
         setCompletedLessons(completedLessonsData);
+        const futureLessonsData = response.data.filter(
+          (lesson) => lesson.lessonStatus === 'not started'
+        );
+        setFutureLessons(futureLessonsData);
         console.log(completedLessonsData);
         setLoading(false);
         return null;
@@ -58,7 +63,11 @@ export default function Classes() {
 
   <p class="font-poppins text-2xl font-semibold text-black mb-6">Upcoming Lessons</p>
 
-  <div class="bg-slate-100 h-[35vh] "></div>
+  <div class="bg-slate-100 h-[35vh] ">
+  <LessonTable lessonData={futureLessons}></LessonTable>
+
+
+  </div>
 
   <p class="font-poppins text-2xl font-semibold text-black mb-6">Completed Lessons</p>
 

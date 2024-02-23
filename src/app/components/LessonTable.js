@@ -45,6 +45,7 @@ function LessonTable(props){
                 />
                 </Table.Cell>
                 <Table.Cell>
+                    
                 <a href={`/classes/${lesson._id}`} className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
                 View Details
                 </a>
