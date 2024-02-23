@@ -35,11 +35,23 @@ function addLessons() {
     extraNotes: '',
   });
 
+  const formatDate = (dateString) => {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
+    }));
+  };
+  const handleDateChange = (date) => {
+    
+    setFormData((prevData) => ({
+      ...prevData,
+      ["date"]: date,
     }));
   };
 
@@ -127,25 +139,27 @@ function addLessons() {
 
     <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Lesson date</p>
     <div class="w-1/2">
-    <Datepicker onChange={handleChange} name="date"/>
+    <Datepicker onChange={(e) => console.log(e)} // not working
+       onSelectedDateChanged={(e) => handleDateChange(e)} name="date"/>
     </div>
 
     <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Subject</p>
     <div class="w-1/2">
-    <Dropdown onChange={handleChange} name="subject" label="Select subject" placement="bottom" style={{ backgroundColor: 'white', color:'black' }} >
+    <Select onChange={handleChange} name="subject" >
     {subjects.map((subject, index) => (
-        <Dropdown.Item key={index} value={subject.name}>
-          <Badge color={subject.color}>{subject.name}</Badge>
-        </Dropdown.Item>
+        <option key={index} value={subject.name}>
+          {subject.name}
+        </option>
       ))}
-    </Dropdown>
+    </Select>
+    
 
    
     </div>
 
     <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Extra notes</p>
     <div class="w-2/3">
-    <Textarea value={formData.extraNotes} name="extraNotes" onChange={handleChange} id="comment" placeholder="Leave a comment..." required rows={4} />
+    <Textarea value={formData.extraNotes} name="extraNotes" onChange={handleChange} id="comment" placeholder="Leave a comment..." rows={4} />
       </div>
 
   
