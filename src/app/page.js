@@ -1,4 +1,4 @@
-
+'use client';
 
 import LessonCarousels from './components/Carousel';
 import RecentQuestions from "./components/RecentQuestions";
