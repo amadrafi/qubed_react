@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
-function addLessons() {
+function AddLessons() {
   let selected = [];
   let countries = [
     { value: 'us', name: 'United States', color: 'indigo' },
@@ -178,4 +178,4 @@ function addLessons() {
   );
 }
 
-export default addLessons;
+export default AddLessons;
