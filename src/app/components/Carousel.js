@@ -36,11 +36,11 @@ function LessonCarousels() {
     if (!lessons) return null;
 
     const groups = [];
-    for (let i = 0; i < lessons.length; i += 2) {
-      groups.push(lessons.slice(i, i + 2));
+    for (let i = 0; i < lessons.length; i += 3) {
+      groups.push(lessons.slice(i, i + 3));
     }
     return groups.map((group, index) => (
-      <div key={index} className="grid grid-cols-2 h-full w-full text-black overflow-x-hidden">
+      <div key={index} className="grid grid-cols-3 h-full w-full text-black overflow-x-hidden ">
         {group.map((lesson) => (
           <LessonCard key={lesson._id} lessonName={lesson.lessonName} image={lesson.lessonImage} id={lesson._id}/>
         ))}
