@@ -1,6 +1,6 @@
 'use client';
 import { TextInput, Datepicker, Textarea, Button, Select, FileInput } from 'flowbite-react';
-import { useRouter } from 'next/router';
+
 
 import UploadPicture from "../components/UploadPicture";
 import axios from 'axios';
@@ -30,7 +30,7 @@ function AddLessons() {
     extraNotes: '',
   });
   const [PDFData, setPDFData] = useState({});
-  const router = useRouter();
+
 
   
 
@@ -85,7 +85,7 @@ function AddLessons() {
       } 
       setIsDataAwaiting(false);
       
-      router.push(`/${response.data}`);
+   
       return null;
       
    
