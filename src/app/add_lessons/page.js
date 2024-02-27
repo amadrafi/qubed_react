@@ -1,5 +1,6 @@
 'use client';
-import { TextInput, Datepicker, Dropdown, Textarea, Badge, Select } from 'flowbite-react';
+import { TextInput, Datepicker, Textarea, Button, Select, FileInput } from 'flowbite-react';
+import { useRouter } from 'next/router';
 
 import UploadPicture from "../components/UploadPicture";
 import axios from 'axios';
@@ -7,41 +8,34 @@ import { useState, useEffect } from 'react';
 
 
 function AddLessons() {
-  let selected = [];
-  let countries = [
-    { value: 'us', name: 'United States', color: 'indigo' },
-    { value: 'ca', name: 'Canada', color: 'green' },
-    { value: 'fr', name: 'France', color: 'blue' },
-    { value: 'jp', name: 'Japan', color: 'red' },
-    { value: 'en', name: 'England', color: 'yellow' }
-  ];
+  
 
   const subjects = [
     { name: 'Maths', color: 'purple' },
     { name: 'Geography', color: 'green' },
     { name: 'English', color: 'yellow' },
     { name: 'Physics', color: 'blue' },
+    { name: 'History', color: 'red' },
 
   ];
-  
+  const [isDataAwaiting, setIsDataAwaiting] = useState(false);
+  const [file, setFile] = useState(null);
   const [lessonName, setLessonName] = useState('Background');
   const [imageUrl, setImageUrl] = useState("https://images.unsplash.com/photo-1637090405108-9353c06fd2bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjQ3Mzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDg1MjcyNTV8&ixlib=rb-4.0.3&q=80&w=1080")
   const [isClicked, setIsClicked] = useState(false);
   const [formData, setFormData] = useState({
     lessonName: '',
-    lessonPlanPDF: '', 
     date: '', 
     subject: '', 
     extraNotes: '',
   });
+  const [PDFData, setPDFData] = useState({});
 
-  const formatDate = (dateString) => {
-    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(value);
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -55,18 +49,55 @@ function AddLessons() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  
+  const handleSubmit = async (event) => {
+    setIsDataAwaiting(true);
     event.preventDefault();
     // You can access all form data in the formData object here
     console.log('Form Data:', formData);
-    // Perform your form submission logic here
+    try {
+      const response = await axios.post(
+        'https://0988-185-92-25-79.ngrok-free.app/addLessonPlan/',
+     
+          formData, 
+        
+      )
+
+      console.log(response.data);
+      try{
+        
+        const formPDFData = new FormData();
+        formPDFData.append("file", file);
+        console.log(formPDFData);
+        
+        const response = await axios.post(
+          'https://0988-185-92-25-79.ngrok-free.app/addLessonPDF/',
+       
+            formPDFData, 
+          
+        )
+        console.log(response.data);
+
+
+      } catch (error) {
+        console.error(error);
+      } 
+      setIsDataAwaiting(false);
+      const router = useRouter();
+      router.push(`/${response.data}`);
+      return null;
+      
+   
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const handleLessonNameChange = (event) => {
-    
-    setLessonName(event.target.value);
-    
-  };
+  const onFileChange = (event) => {
+   
+    setFile(event.target.files[0]);
+   
+};
 
   const refreshImage = async () => {
     setIsClicked(true);
@@ -134,24 +165,28 @@ function AddLessons() {
 
     <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Lesson plan</p>
     <div class="w-2/3">
-    <UploadPicture onChange={handleChange} name="lessonPlanPDF" value={formData.lessonPlanPDF}/>
+    <FileInput onChange={onFileChange} name="file"/>
     </div>
 
     <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Lesson date</p>
     <div class="w-1/2">
-    <Datepicker onChange={(e) => console.log(e)} // not working
+    <Datepicker required
        onSelectedDateChanged={(e) => handleDateChange(e)} name="date"/>
     </div>
 
     <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Subject</p>
     <div class="w-1/2">
-    <Select onChange={handleChange} name="subject" >
-    {subjects.map((subject, index) => (
-        <option key={index} value={subject.name}>
-          {subject.name}
-        </option>
-      ))}
-    </Select>
+    <Select onChange={handleChange} name="subject" required>
+  <option value="" disabled selected>
+    Select a subject
+  </option>
+  {subjects.map((subject, index) => (
+    <option key={index} value={subject.name}>
+      {subject.name}
+    </option>
+  ))}
+</Select>
+
     
 
    
@@ -164,9 +199,17 @@ function AddLessons() {
 
   
    
+      {isDataAwaiting ? (
+      <Button size="sm" isProcessing className="mt-10 w-1/2 p-2">
+        Uploading...
+      </Button>
+    ) : (
+      <Button size="sm" type="submit" className="mt-10 w-1/2 p-2">
+        Submit
+      </Button>
+    )}
 
-
-    <button type="submit" class="bg-blue-500 h-[6vh] w-1/2 mt-16 rounded-xl">Submit</button>
+    {/* <button type="submit" >Submit</button> */}
 
 
    
