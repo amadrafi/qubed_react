@@ -1,5 +1,12 @@
 import { Table, Badge, Progress } from 'flowbite-react';
 function LessonTable(props){
+    const subjects = {
+        Maths: 'blue',
+        Geography: 'green',
+        English: 'yellow',
+        History: 'purple',
+        
+      };
 
     const formatDate = (dateString) => {
         const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
@@ -30,7 +37,7 @@ function LessonTable(props){
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                 {lesson.lessonName}
                 </Table.Cell>
-                <Table.Cell><Badge color="purple">{lesson.subject}</Badge></Table.Cell>
+                <Table.Cell><Badge className='flex justify-center items-center' color={subjects[lesson.subject]}>{lesson.subject}</Badge></Table.Cell>
                 <Table.Cell>{formatDate(lesson.date)}</Table.Cell>
                 <Table.Cell>
 

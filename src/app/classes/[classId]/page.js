@@ -86,11 +86,11 @@ function ClassDetails({ params }) {
       </svg>
       </a>
         </div>
-        <di className="flex justify-center items-center">
+        <div className="flex justify-center items-center">
         <div className="bg-zinc-300 w-full h-[30vh] rounded-t-3xl flex flex-col">
         <img class="object-cover max-h-full rounded-t-3xl" src={lesson.lessonImage} />
         </div>
-        </di>
+        </div>
     
         <div class="bg-white-500 p-1 h-full">
       <div class="bg-white-500 flex flex-col justify-start  mt-16 mx-auto w-full max-w-[45vw] h-full">
@@ -116,20 +116,20 @@ function ClassDetails({ params }) {
    <p class="mt-8 mb-8 font-poppins text-2xl font-semibold text-black">Key Concepts</p>
    
 
-    <div class="flex">
-  <div class="mt-2 inline-block max-w-min mr-2 whitespace-nowrap">
-    <Badge className="bg-slate-200 text-black" size="lg">
-      Finding Areas
-    </Badge>
-  </div>
-  <div class="mt-2 inline-block max-w-min whitespace-nowrap">
-    <Badge className="bg-slate-200 text-black" size="lg">
-    Number of unit squares
-    </Badge>
-  </div>
+    <div class="flex flex-wrap">
+    {lesson.concepts.map((concept, index) => (
+        <div key={index} class="mt-1 max-w-min mr-2 whitespace-nowrap pb-2">
+        <Badge  className="bg-slate-200 text-black" size="lg">
+          {concept}
+        </Badge>
+      </div>
+
+))}
+
+
 </div>
 
-   <div class="mt-12">
+   <div class="mt-6">
    <p class="font-poppins text-2xl font-semibold text-black mt-4 mb-6">Lesson Schedule</p>
 
 
@@ -137,7 +137,7 @@ function ClassDetails({ params }) {
       <Accordion.Panel>
         <Accordion.Title className="font-poppins text-xl font-semibold text-black">Lesson Schedule</Accordion.Title>
         <Accordion.Content> */}
-        <LessonTimeline></LessonTimeline>
+        <LessonTimeline activities={lesson.activities}></LessonTimeline>
         {/* </Accordion.Content>
       </Accordion.Panel>
   

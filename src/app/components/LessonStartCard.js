@@ -52,7 +52,7 @@ function LessonStartCard() {
     return (
         
      
-    <div className={` w-full h-[12vh] mt-8 rounded-3xl border-2  pt-2 ${
+    <div className={` w-full mt-8 rounded-3xl border-2  pt-2 ${
         lessonState === 0 ? "text-white bg-gradient-to-r from-green-300 to-cyan-300 enabled:hover:bg-gradient-to-bl focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800" : 
         lessonState === 1 ? "text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 enabled:hover:bg-gradient-to-l enabled:hover:from-teal-200 enabled:hover:to-lime-200 enabled:hover:text-gray-900 focus:ring-4 focus:ring-lime-200 dark:focus:ring-teal-700" : 
         lessonState === 2 ? " bg-gradient-to-r from-yellow-100 to-pink-100 focus:ring-4 focus:ring-lime-200 dark:focus:ring-teal-700" : 
@@ -62,7 +62,7 @@ function LessonStartCard() {
       }`}
     style={{ borderColor: getBorderColor(lessonState)}}>
     
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center h-full'>
     {lessonState === 0 && (
       <div className="border-2 h-10 w-10 rounded-full flex justify-center items-center hover:animate-pulse"
       style={{borderColor: getBorderColor(lessonState)}}>

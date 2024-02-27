@@ -9,10 +9,19 @@ import LessonTable from "../components/LessonTable";
 
 
 export default function Classes() {
+  const subjects = [
+    { name: 'Maths', color: 'blue' },
+    { name: 'Geography', color: 'green' },
+    { name: '', color: 'yellow' },
+    { name: 'History', color: 'orange' },
+    
+
+  ];
   const [lessonData, setLessonData] = useState(null);
   const [completedLessons, setCompletedLessons] = useState([]);
   const [futureLessons, setFutureLessons] = useState([]);
   const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -63,7 +72,7 @@ export default function Classes() {
 
   <p class="font-poppins text-2xl font-semibold text-black mb-6">Upcoming Lessons</p>
 
-  <div class="bg-slate-100 h-[35vh] ">
+  <div class="bg-slate-100 mb-10 ">
   <LessonTable lessonData={futureLessons}></LessonTable>
 
 
