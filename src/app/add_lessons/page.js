@@ -30,6 +30,7 @@ function AddLessons() {
     extraNotes: '',
   });
   const [PDFData, setPDFData] = useState({});
+  const router = useRouter();
 
   
 
@@ -83,7 +84,7 @@ function AddLessons() {
         console.error(error);
       } 
       setIsDataAwaiting(false);
-      const router = useRouter();
+      
       router.push(`/${response.data}`);
       return null;
       
