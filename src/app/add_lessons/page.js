@@ -158,10 +158,6 @@ function AddLessons() {
       <div class="bg-white-500 p-1 h-full">
         <div class="bg-white-500 flex flex-col justify-start  mt-16 mx-auto w-full max-w-[45vw] h-full">
           <p class="mt-0 font-poppins text-2xl font-semibold text-black">Add new Lesson</p>
-          <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Lesson name</p>
-          <div class="w-1/2">
-            <TextInput id="email1" type="email" placeholder="Lesson name" required />
-          </div>
 
     <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Lesson name</p>
     <div class="w-1/2">
