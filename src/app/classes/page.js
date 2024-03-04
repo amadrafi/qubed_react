@@ -26,7 +26,7 @@ export default function Classes() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'https://5fd3-92-237-138-59.ngrok-free.app/getAllLessons/',
+          'https://0988-185-92-25-79.ngrok-free.app/getAllLessons/',
           {
             headers: {
               'ngrok-skip-browser-warning': '69420',
@@ -73,14 +73,14 @@ export default function Classes() {
   <p class="font-poppins text-2xl font-semibold text-black mb-6">Upcoming Lessons</p>
 
   <div class="bg-slate-100 mb-10 ">
-  <LessonTable lessonData={futureLessons} completed={false}></LessonTable>
+  <LessonTable lessonData={futureLessons}></LessonTable>
 
 
   </div>
 
   <p class="font-poppins text-2xl font-semibold text-black mb-6">Completed Lessons</p>
 
-      <LessonTable lessonData={completedLessons} completed={true}></LessonTable>
+      <LessonTable lessonData={completedLessons}></LessonTable>
     </div>
     )}
     </div>
