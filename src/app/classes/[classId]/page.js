@@ -35,7 +35,7 @@ function ClassDetails({ params }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://0988-185-92-25-79.ngrok-free.app/findLesson/${params.classId}`,
+          `https://5fd3-92-237-138-59.ngrok-free.app/findLesson/${params.classId}`,
           {
             headers: {
               'ngrok-skip-browser-warning': '69420',
@@ -113,7 +113,7 @@ function ClassDetails({ params }) {
   <>
    <LessonStartCard></LessonStartCard>
 
-   <p class="mt-8 mb-8 font-poppins text-2xl font-semibold text-black">Key Concepts</p>
+   <p class="mt-8 mb-8 font-poppins text-xl font-semibold text-black">Key Concepts</p>
    
 
     <div class="flex flex-wrap">
@@ -126,11 +126,10 @@ function ClassDetails({ params }) {
 
 ))}
 
-
 </div>
 
    <div class="mt-6">
-   <p class="font-poppins text-2xl font-semibold text-black mt-4 mb-6">Lesson Schedule</p>
+   <p class="font-poppins text-xl font-semibold text-black mt-4 mb-6">Lesson Schedule</p>
 
 
    {/* <Accordion>
@@ -153,7 +152,23 @@ function ClassDetails({ params }) {
            
 ) : (
   <>
-  <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Summary</p>
+     <p class="mt-8 mb-8 font-poppins text-xl font-semibold text-black">Key Concepts</p>
+   
+
+   <div class="flex flex-wrap">
+   {lesson.concepts.map((concept, index) => (
+       <div key={index} class="mt-1 max-w-min mr-2 whitespace-nowrap pb-2">
+       <Badge  className="bg-slate-200 text-black" size="lg">
+         {concept}
+       </Badge>
+     </div>
+
+))}
+
+</div>
+<LessonTimeline activities={lesson.activities}></LessonTimeline>
+  <p class="font-poppins text-xl font-semibold text-black mt-10 mb-6">Summary</p>
+
         <div class="w-2/3">
 
         </div>
