@@ -58,7 +58,7 @@ function AddLessons() {
     console.log('Form Data:', formData);
     try {
       const response = await axios.post(
-        'https://0988-185-92-25-79.ngrok-free.app/addLessonPlan/',
+        'https://5fd3-92-237-138-59.ngrok-free.app/addLessonPlan/',
      
           formData, 
         
@@ -72,7 +72,7 @@ function AddLessons() {
         console.log(formPDFData);
         
         const response = await axios.post(
-          'https://0988-185-92-25-79.ngrok-free.app/addLessonPDF/',
+          'https://5fd3-92-237-138-59.ngrok-free.app/addLessonPDF/',
        
             formPDFData, 
           
@@ -104,7 +104,7 @@ function AddLessons() {
     setIsClicked(true);
     try {
       const response = await axios.get(
-        `https://0988-185-92-25-79.ngrok-free.app/get_image/${formData.lessonName}`,
+        `https://5fd3-92-237-138-59.ngrok-free.app/get_image/${formData.lessonName}`,
         {
           headers: {
             'ngrok-skip-browser-warning': '69420',
@@ -129,7 +129,7 @@ function AddLessons() {
     <form onSubmit={handleSubmit} className='bg-slate-100 min-h-full'>
 
   
-      <div className="bg-white-500 w-full h-[6vh] flex items-center sticky top-0">
+    <div className="bg-white-500 w-full h-[6vh] flex items-center">
     {/* <div className='bg-slate-100'> */}
     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
@@ -155,9 +155,9 @@ function AddLessons() {
 
     </di>
 
-      <div class="bg-white-500 p-1 h-full">
-        <div class="bg-white-500 flex flex-col justify-start  mt-16 mx-auto w-full max-w-[45vw] h-full">
-          <p class="mt-0 font-poppins text-2xl font-semibold text-black">Add new Lesson</p>
+    <div class="bg-white-500 p-1 h-full">
+  <div class="bg-white-500 flex flex-col justify-start  mt-16 mx-auto w-full max-w-[45vw] h-full">
+    <p class="mt-0 font-poppins text-2xl font-semibold text-black">Add new Lesson</p>
 
     <p class="font-poppins text-lg font-semibold text-black mt-10 mb-6">Lesson name</p>
     <div class="w-1/2">

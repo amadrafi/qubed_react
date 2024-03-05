@@ -1,8 +1,6 @@
 function UnderstandingGraph(){
   return (
-    <div className="w-full h-full bg-slate-400 rounded-lg">
-      <h1 className="text-center mx-auto">Understanding graph</h1>
-    </div>
+    <h1 className="text-center mx-auto">This is the understanding graph</h1>
   );
 }
 

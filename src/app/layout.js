@@ -1,3 +1,4 @@
+
 import { Inter } from "next/font/google";
 import { ThemeModeScript } from 'flowbite-react';
 import "./globals.css";
@@ -12,7 +13,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="bg-zinc-800">
+    <html lang="en" className="bg-zinc-900">
       <head>
         <link rel="shortcut icon" href="/favicon.svg" />
         <meta
@@ -24,7 +25,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className='h-screen flex flex-row bg-inherit overflow-x-hidden'>
           <Navbar />
-          <div className="flex-auto bg-white">{children}</div>
+          <div className="flex-auto">{children}</div>
         </div>
       </body>
     </html>
