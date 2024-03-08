@@ -13,6 +13,7 @@ function LessonTable(props){
         return new Date(dateString).toLocaleDateString(undefined, options);
       };
 
+    const completed = props.completed;
     const completedLessonData = props.lessonData;
 
 
@@ -25,7 +26,8 @@ function LessonTable(props){
             <Table.HeadCell>Lesson Name</Table.HeadCell>
             <Table.HeadCell>Subject</Table.HeadCell>
             <Table.HeadCell>Date</Table.HeadCell>
-            <Table.HeadCell>Understanding score</Table.HeadCell>
+            {completed && <Table.HeadCell>Understanding score</Table.HeadCell>}
+
             <Table.HeadCell>
                 <span className="sr-only">View Details</span>
             </Table.HeadCell>
@@ -39,6 +41,7 @@ function LessonTable(props){
                 </Table.Cell>
                 <Table.Cell><Badge className='flex justify-center items-center' color={subjects[lesson.subject]}>{lesson.subject}</Badge></Table.Cell>
                 <Table.Cell>{formatDate(lesson.date)}</Table.Cell>
+                {completed && (
                 <Table.Cell>
 
                 <Progress
@@ -51,6 +54,7 @@ function LessonTable(props){
                 labelText
                 />
                 </Table.Cell>
+                )}
                 <Table.Cell>
                     
                 <a href={`/classes/${lesson._id}`} className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
