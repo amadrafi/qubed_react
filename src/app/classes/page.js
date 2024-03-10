@@ -26,7 +26,7 @@ export default function Classes() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'https://9dee-92-237-138-59.ngrok-free.app/getAllLessons/',
+          'https://62eb-92-237-138-59.ngrok-free.app/getAllLessons/',
           {
             headers: {
               'ngrok-skip-browser-warning': '69420',
