@@ -5,7 +5,7 @@ import QuestionRow from './QuestionRow';
 
 function RecentQuestions(){
   return (
-    <div className="h-full overflow-y-scroll overflow-x-hidden rounded-lg">
+    <div className="h-full overflow-y-scroll overflow-x-hidden rounded-lg w-full">
       <Table hoverable className=' font-poppins'>
         <Table.Head className='sticky top-0 text-black text-sm bg-white'>
           <Table.HeadCell className=''>Recent Questions</Table.HeadCell>
@@ -19,8 +19,8 @@ function RecentQuestions(){
           <QuestionRow question="Who invented the light bulb?" date="05/12" subject="Physics" color="success" link='1'/>
           <QuestionRow question="How are mountains formed?" date="04/12" subject ="Geography" color='purple' link='1'/>
           <QuestionRow question='Why do we have seasons?' date='02/16' subject='Geography' color='purple' link='1'/>
-          <QuestionRow question='In 1945, which country initiated the second world war?' date='03/12' subject='history' link='1'/>
-          <QuestionRow question="Why do we have seasons?" date="02/16" subject="Geography" color='purple' link='1'/>
+          <QuestionRow question='Why did Japan attack Pearl Harbor?' date='03/12' subject='history' link='1'/>
+          <QuestionRow question="Why do we live?" date="02/16" subject="Math" color='purple' link='1'/>
           <QuestionRow question="What are the parts of a flower?" date="02/17" subject="Biology" link='1'/>
           <QuestionRow question="Who built the pyramids?" date="02/18" subject="History"  link='1'/>
           <QuestionRow question="What is photosynthesis?" date="02/19" subject="Biology"  link='1'/>
