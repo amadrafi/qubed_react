@@ -1,5 +1,6 @@
 'use client';
 import { TextInput, Datepicker, Textarea, Button, Select, FileInput } from 'flowbite-react';
+import { useRouter } from 'next/navigation';
 
 
 import UploadPicture from "../components/UploadPicture";
@@ -9,7 +10,8 @@ import { useState, useEffect } from 'react';
 
 function AddLessons() {
   
-
+  
+  const router = useRouter();
   const subjects = [
     { name: 'Maths', color: 'purple' },
     { name: 'Geography', color: 'green' },
@@ -84,6 +86,7 @@ function AddLessons() {
         console.error(error);
       } 
       setIsDataAwaiting(false);
+      router.push('/');
       
    
       return null;

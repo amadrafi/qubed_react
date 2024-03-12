@@ -1,16 +1,23 @@
 import { Card } from 'flowbite-react';
+import CircularProgress from '@mui/joy/CircularProgress';
+
+
+
 
 function SubjectCard(props) {
   return (
-    <Card href="/" className="max-w-full min-h-full dark:bg-zinc-950 dark:hover:bg-zinc-900">
-      <h5 className="text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
+    <div  className="h-full bg-slate-700 w-full text-white p-6">
+      <p className="text-2xl font-bold text-center text-white ">
         {props.title}
-      </h5>
-      <p className="font-normal text-gray-700 dark:text-gray-400">
-        {props.content}
       </p>
+      <div className='flex flex-row py-2'>
+        <CircularProgress variant="soft" color='primary' determinate value={props.understanding * 100} />
 
-    </Card>
+      </div>
+      <div className='flex flex-row py-2'>
+        <CircularProgress variant='soft' determinate value={props.engagement * 100} />
+      </div>
+    </div>
   );
 }
 
