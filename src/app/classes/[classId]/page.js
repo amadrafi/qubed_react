@@ -35,7 +35,7 @@ function ClassDetails({ params }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://62eb-92-237-138-59.ngrok-free.app/findLesson/${params.classId}`,
+          `https://aab0-192-41-114-226.ngrok-free.app/findLesson/${params.classId}`,
           {
             headers: {
               'ngrok-skip-browser-warning': '69420',
