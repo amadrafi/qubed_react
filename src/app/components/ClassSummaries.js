@@ -3,7 +3,6 @@ import SubjectCard from './SubjectCard';
 import axios from 'axios';
 import { useEffect,  useState} from 'react';
 import { Spinner } from 'flowbite-react';
-import { data } from 'autoprefixer';
 
 
 

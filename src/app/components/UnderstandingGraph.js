@@ -7,12 +7,7 @@ const data = [
   { name: '28', understanding: 42, engagement: 65 },
   { name: '29', understanding: 39, engagement: 70 },
   { name: '30', understanding: 50, engagement: 80 },
-  { name: '31', understanding: 55, engagement: 75 },
-  { name: '1', understanding: 65, engagement: 68 },
-  { name: '2', understanding: 63, engagement: 72 },
-  { name: '3', understanding: 66, engagement: 78 },
-  { name: '4', understanding: 70, engagement: 69 },
-  { name: '5', understanding: 75, engagement: 82 }
+  { name: '31', understanding: 55, engagement: 75 }
 ];
 
 
