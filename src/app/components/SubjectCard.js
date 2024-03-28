@@ -4,7 +4,7 @@ import CircularProgress from '@mui/joy/CircularProgress';
 function SubjectCard(props) {
   return (
     <div  className="h-full bg-white w-full text-white p-6 border-2 border-grey-100 rounded-lg">
-      <p className="text-2xl font-semibold text-center text-black font-poppins ">
+      <p className="text-2xl font-semibold text-center text-black font-poppins capitalize">
         {props.title}
       </p>
       <div className='grid grid-cols-1 h-4/5 max-w-full'>

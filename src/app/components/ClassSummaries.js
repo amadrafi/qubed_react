@@ -52,7 +52,7 @@ function ClassSummaries(){
         </div>
       ) : (
         // Render carousel once data is loaded
-        <Carousel className='rounded-none dark' slideInterval={3500} slide={false} indicators={false} pauseOnHover>
+        <Carousel className='rounded-none' slideInterval={3000} pauseOnHover>
           {renderClassSummaries(subjectData)}
         </Carousel>
       )}
