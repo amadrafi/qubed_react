@@ -3,17 +3,22 @@ import SubjectCard from './SubjectCard';
 import axios from 'axios';
 import { useEffect,  useState} from 'react';
 import { Spinner } from 'flowbite-react';
+import { data } from 'autoprefixer';
 
 
 
 function ClassSummaries(){
+  const testData = [
+    {_id: 1, subject: 'Physics', understanding: 0.71, engagement: 0.81},
+    {_id: 1, subject: 'Mathematics', understanding: 0.91, engagement: 0.55},
+  ]
   const [subjectData, setSubjectData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // change to true after testing
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://62eb-92-237-138-59.ngrok-free.app/getSubjects/', {
+        const response = await axios.get('https://aab0-192-41-114-226.ngrok-free.app/getSubjects/', {
           headers: {
             'ngrok-skip-browser-warning': '69420',
           },
@@ -48,7 +53,7 @@ function ClassSummaries(){
         </div>
       ) : (
         // Render carousel once data is loaded
-        <Carousel className='rounded-none' slideInterval={3500} slide={false} indicators={false} pauseOnHover>
+        <Carousel className='rounded-none dark' slideInterval={3500} slide={false} indicators={false} pauseOnHover>
           {renderClassSummaries(subjectData)}
         </Carousel>
       )}
