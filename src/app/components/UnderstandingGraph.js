@@ -1,13 +1,13 @@
 
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer} from 'recharts';
 const data = [
-  { name: '25', understanding: 31, engagement: 60 }, 
+  { name: '25', understanding: 50, engagement: 60 }, 
   { name: '26', understanding: 45, engagement: 75 },
-  { name: '27', understanding: 47, engagement: 80 },
-  { name: '28', understanding: 42, engagement: 65 },
-  { name: '29', understanding: 39, engagement: 70 },
-  { name: '30', understanding: 50, engagement: 80 },
-  { name: '31', understanding: 55, engagement: 75 }
+  { name: '27', understanding: 57, engagement: 80 },
+  { name: '28', understanding: 63, engagement: 65 },
+  { name: '29', understanding: 59, engagement: 70 },
+  { name: '30', understanding: 68, engagement: 80 },
+  { name: '31', understanding: 70, engagement: 75 }
 ];
 
 
