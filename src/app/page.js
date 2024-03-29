@@ -8,7 +8,7 @@ import UnderstandingGraph from "./components/UnderstandingGraph";
 export default function Home() {
   return (
     <div className="bg-slate-100 text-white h-full max-w-full flex flex-col pt-3 p-2">
-      <div className="flex flex-row h-3/6">
+      <div className="flex flex-row h-2/5">
         <div className="w-full flex pb-2">
           <LessonCarousels />
         </div>
@@ -16,7 +16,7 @@ export default function Home() {
           {/* <RecentQuestions /> */}
         {/* </div> */}
       </div>
-      <div className="flex-row flex flex-auto h-3/6">
+      <div className="flex-row flex flex-auto h-3/5">
         <div className="w-1/4 p-1 flex items-center">
           <ClassSummaries />
         </div>
