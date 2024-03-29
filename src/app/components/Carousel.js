@@ -17,7 +17,7 @@ function LessonCarousels() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://aab0-192-41-114-226.ngrok-free.app/getAllLessons/', {
+        const response = await axios.get('https://2ac3-82-132-234-200.ngrok-free.app/getAllLessons/', {
           headers: {
             'ngrok-skip-browser-warning': '69420',
           },

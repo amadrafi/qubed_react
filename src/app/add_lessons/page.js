@@ -60,7 +60,7 @@ function AddLessons() {
     console.log('Form Data:', formData);
     try {
       const response = await axios.post(
-        'https://aab0-192-41-114-226.ngrok-free.app/addLessonPlan/',
+        'https://2ac3-82-132-234-200.ngrok-free.app/addLessonPlan/',
      
           formData, 
         
@@ -74,7 +74,7 @@ function AddLessons() {
         console.log(formPDFData);
         
         const response = await axios.post(
-          'https://aab0-192-41-114-226.ngrok-free.app/addLessonPDF/',
+          'https://2ac3-82-132-234-200.ngrok-free.app/addLessonPDF/',
        
             formPDFData, 
           
@@ -107,7 +107,7 @@ function AddLessons() {
     setIsClicked(true);
     try {
       const response = await axios.get(
-        `https://aab0-192-41-114-226.ngrok-free.app/get_image/${formData.lessonName}`,
+        `https://2ac3-82-132-234-200.ngrok-free.app/get_image/${formData.lessonName}`,
         {
           headers: {
             'ngrok-skip-browser-warning': '69420',
