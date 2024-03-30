@@ -44,7 +44,7 @@ function LessonCarousels() {
     return groups.map((group, index) => (
       <div key={index} className="grid grid-cols-5 h-full w-full text-black overflow-x-hidden ">
         {group.map((lesson) => (
-          <LessonCard key={lesson._id} lessonName={lesson.lessonName} image={lesson.lessonImage} id={lesson._id}/>
+          <LessonCard key={lesson._id} lessonName={lesson.lessonName} image={lesson.lessonImage} id={lesson._id} subject={lesson.subject}/>
         ))}
       </div>
     ));
@@ -72,7 +72,8 @@ function LessonCard(props)  {
       <div className="h-1/3 w-full overflow-hidden object-center">
         <img className="object-center" src={props.image} />
       </div>
-      <h1 className="font-poppins text-lg capitalize pt-2 pl-3 font-semibold">{props.lessonName}</h1>
+      <h1 className="font-poppins text-xl capitalize pt-2 pl-3 font-semibold">{props.lessonName}</h1>
+      <h2 className="font-poppins text-sm text-gray-600 pt-1 pl-3 font-semibold">{props.subject}</h2>
     </Link>
   )
 }
