@@ -81,14 +81,17 @@ function AddLessons() {
         )
         console.log(response.data);
 
+        setIsDataAwaiting(false);
+
+        const classId = lessonResponse.data.classId || formData.classId;
+
 
       } catch (error) {
         console.error(error);
       } 
       setIsDataAwaiting(false);
-      router.push('/');
+      router.push(`/classes/${classId}`);
       
-   
       return null;
       
    
